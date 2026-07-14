@@ -1,0 +1,16 @@
+fastapi
+uvicorn
+pandas
+scikit-learn
+joblib
+matplotlib
+python-jose
+pwdlib[bcrypt]
+bcrypt
+pydantic
+python-multipart
+email-validator
+google-genai
+python-dotenv
+google-genai 
+argon2-cffi
