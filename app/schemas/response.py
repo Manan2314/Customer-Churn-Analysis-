@@ -14,7 +14,7 @@ class PredictionResponse(BaseModel):
 class SegmentationResponse(BaseModel):
     customer_segment: int
     recommendation: str
-
+ 
 
 class CustomerOverview(BaseModel):
     total_customers: int

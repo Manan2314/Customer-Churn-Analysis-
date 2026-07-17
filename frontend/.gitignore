@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual Environment
+.venv/
+venv/
+env/
+
+# Environment Variables
+.env
+*.env
+
+# VS Code
+.vscode/
+
+# PyCharm
+.idea/
+
+# Logs
+*.log
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Dataset outputs (optional)
+datasets/processed/
+
+# Model files (if you don't want to push them)
+saved_models/
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+
+# Build files
+dist/
+build/

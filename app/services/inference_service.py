@@ -36,10 +36,9 @@ class InferenceService:
         model_service.set_dataset_path(file_path)
 
 
-        # -----------------------------
+        
+       
         # Churn Prediction
-        # -----------------------------
-
         churn_features = self.prepare_churn_features(df)
 
         scaled_features = (
@@ -69,9 +68,9 @@ class InferenceService:
         )
 
 
-        # -----------------------------
+      
         # Segmentation
-        # -----------------------------
+        
 
         segmentation_df = (
             df[

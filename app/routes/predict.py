@@ -1,10 +1,8 @@
 # pyrefly: ignore [missing-import]
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter
 from app.schemas.customer import CustomerChurnRequest, CustomerSegmentationRequest
 from app.schemas.response import PredictionResponse, SegmentationResponse
 from app.services.model_loader import model_service
-from app.services.auth_service import get_current_user
-from app.schemas.auth import User
 from app.services.recommendation import generate_recommendation
 
 router = APIRouter(

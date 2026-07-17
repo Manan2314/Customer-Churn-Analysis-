@@ -287,5 +287,58 @@ class ModelService:
         "largest_segment": largest_segment,
      }
       
+    def get_segmentation_analysis(self, df: pd.DataFrame):
+    
+
+    # Select clustering features
+     X = df[self.SEGMENTATION_FEATURES]
+
+    # Scale and predict clusters
+     X_scaled = self._segmentation_scaler.transform(X)
+     clusters = self._segmentation_model.predict(X_scaled)
+
+    # Add cluster labels temporarily
+     analysis_df = df.copy()
+     analysis_df["Segment"] = clusters
+ 
+    # Segment counts
+     distribution = (
+        analysis_df["Segment"]
+        .value_counts()
+        .sort_index()
+     )
+
+     total_customers = len(analysis_df)
+
+    # Chart-ready data
+     segment_distribution = []
+
+     SEGMENT_NAMES = {
+     0: "At Risk Customers",
+     1: "VIP Customers",
+     2: "Loyal Customers",
+     3: "Regular Customers"
+}
+
+     for segment, count in distribution.items():
+      segment_distribution.append({
+        "name": SEGMENT_NAMES.get(segment, f"Segment {segment}"),
+        "customers": int(count),
+        "percentage": round((count / total_customers) * 100, 2)
+     })
+
+     largest_segment = (
+        f"Segment {distribution.idxmax()}"
+        if not distribution.empty
+        else "N/A"
+     )
+
+     return {
+        "total_customers": total_customers,
+        "total_segments": len(distribution),
+        "largest_segment": largest_segment,
+        "segment_distribution": segment_distribution,
+     }
+    
 
 model_service = ModelService()
